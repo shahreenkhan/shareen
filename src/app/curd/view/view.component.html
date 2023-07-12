@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center text-danger">View Table</h2>
+                
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-danger">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Id</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Body</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  class="text-center">
+                                <td>{{view._id}}</td>
+                                <td>{{view.title}}</td>
+                                <td>{{view.body}}</td>
+                                <td>{{view.description}}</td>
+                                <td>
+                                    <button *ngIf="userser.loggedIn()"  (click)="showEdit()" class="btn btn-primary" >Edit</button>
+                                    <button *ngIf="userser.loggedIn()" (click)="deletecurd()" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <button class="btn btn-primary btn-lg" herf="/curd">Back to Display</button> -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h2 class="bg-dark"></h2>
+    <div class="form-wrap" *ngIf="showform">
+        <h3 class="text-center text-primary">Edit Form</h3>
+        <form [formGroup]="form" (ngSubmit)="update()">
+            <div class="mb-3">
+                <label>TITLE:</label>
+                <input type="text"   formControlName="title" class="form-control"/>
+            </div>
+            <div class="mb-3">
+                <label>Image:</label>
+                <input type="file"  formControlName="image" class="form-control"/>
+            </div>
+            <div class="mb-3">
+                <label>Description:</label>
+                <br/>
+                <textarea class="form-control" formControlName="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-block-lg btn-primary mb-4 text-white rounded-pill">
+                Update
+            </button>
+        </form>
+    </div>
+</div>

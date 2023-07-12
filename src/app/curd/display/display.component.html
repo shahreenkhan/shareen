@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center text-primary">Display Table</h2>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <button type="button" class="btn btn-dark btn-lg float-end"
+                            data-bs-toggle="modal" data-bs-target="#add" style="background-color:#2d3b55;">Add Song</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered table-danger">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Song Name</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Description</th>
+                                    <!-- <th scope="col">Play & Pause</th> -->
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let get of data1" class="text-center">
+                                    <td>{{get._id}}</td>
+                                    <td>{{get.title}}</td>
+                                    <td>{{get.image}}</td>
+                                    <td>{{get.description}}</td>
+
+                                    <!-- <td></td> -->
+                                   
+                                    <td>
+                                        <a class="btn bt2 btn-success badge rounded-pill"
+                                        [routerLink]="['view/',get._id]">View</a>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- Modal -->
+        <form [formGroup]="form" (ngSubmit)="add()">
+            <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Please Fill the Information</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Song Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Song Name"
+                                    formControlName="title" required>
+                            </div>
+
+                            <!-- <div class="mb-3">
+                                <label for="exampleInputCity" class="form-label">Image</label>
+                                <input type="file" class="form-control" 
+                                    placeholder="Write the Body" (change)="onSelectFile($event)">
+                            </div> -->
+
+                            <div class="mb-3">
+                                <label for="exampleInputCity" class="form-label">Description</label>
+                                <input type="text" class="form-control" 
+                                    placeholder="Write the Description" formControlName="description" required>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" >Add Song</button>
+                            <!-- [disabled]="!form.valid" -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form> 

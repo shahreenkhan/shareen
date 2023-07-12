@@ -1,0 +1,36 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light navFontStyle">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <li *ngIf="US.loggedIn()">
+            <img style="height: 80px; width:120px;" src="data:image/png;base64,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" alt="logo" >
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse top-menu-wrapper" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <li *ngIf="US.loggedIn()">
+            <a class="nav-link active" routerLink="/curd" aria-current="page" >Display</a>
+          </li>
+          <li class="nav-item">
+            <li *ngIf="US.loggedIn()">
+            <a class="nav-link active" routerLink="/curd/image" aria-current="page" >Image</a>
+          </li>
+          <li class="nav-item">
+            <li *ngIf="!US.loggedIn()">
+            <a class="nav-link" routerLink="/user/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <li *ngIf="!US.loggedIn()">
+            <a class="nav-link" routerLink="/user/register">Register</a>
+          </li>
+          <li class="nav-item ml-2">
+            <li *ngIf="US.loggedIn()">
+            <a style="cursor: pointer" (click)="US.logout()" class="nav-link" >Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
